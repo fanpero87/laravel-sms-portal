@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'show'] );
+Route::post('/', [App\Http\Controllers\HomeController::class, 'storePhoneNumber'] );
+Route::post('/custom', [App\Http\Controllers\HomeController::class, 'sendCustomMessage'] );
+
+// Route::get('/', 'HomeController@show');
+// Route::post('/', 'HomeController@storePhoneNumber');
+// Route::post('/custom', 'HomeController@sendCustomMessage');
+
